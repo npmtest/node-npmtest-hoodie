@@ -1,1 +1,40 @@
-{     "devDependencies": {         "hoodie": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-hoodie",     "homepage": "https://github.com/npmtest/node-npmtest-hoodie",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-hoodie.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [hoodie (v28.1.0)](https://github.com/hoodiehq/hoodie#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-hoodie.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-hoodie) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-hoodie.svg)](https://travis-ci.org/npmtest/node-npmtest-hoodie)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "hoodie": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-hoodie",
+    "keywords": [
+        "coverage",
+        "test",
+        "hoodie"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_hoodie.js",
+    "name": "npmtest-hoodie",
+    "nameAlias": "npmtest_hoodie",
+    "nameOriginal": "npmtest-hoodie",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-hoodie.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
